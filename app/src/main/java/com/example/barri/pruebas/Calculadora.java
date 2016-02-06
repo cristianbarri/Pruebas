@@ -343,7 +343,7 @@ public class Calculadora extends AppCompatActivity implements View.OnClickListen
                     else if (Double.isInfinite(result)) {
                         error = "El resultado es infinito!";
                         cdb = new CustomDB(getApplicationContext());
-                        cdb.setNotificacion(user, "Porfavor escoge un operador!");
+                        cdb.setNotificacion(user, error);
                         cdb.close();
 
                         if (toast_estado)
@@ -633,7 +633,7 @@ public class Calculadora extends AppCompatActivity implements View.OnClickListen
                     else if (Double.isNaN(result)) {
                         error = "El resultado produce overflow aritmetico";
                         cdb = new CustomDB(getApplicationContext());
-                        cdb.setNotificacion(user, "Porfavor escoge un operador!");
+                        cdb.setNotificacion(user, error);
                         cdb.close();
                         if (toast_estado)
                             Toast.makeText(Calculadora.this, error, Toast.LENGTH_SHORT).show();
@@ -675,7 +675,7 @@ public class Calculadora extends AppCompatActivity implements View.OnClickListen
                     else if (Double.isInfinite(result)) {
                         error = "El resultado es infinito!";
                         cdb = new CustomDB(getApplicationContext());
-                        cdb.setNotificacion(user, "Porfavor escoge un operador!");
+                        cdb.setNotificacion(user, error);
                         cdb.close();
                         if (toast_estado)
                             Toast.makeText(Calculadora.this, error , Toast.LENGTH_SHORT).show();
@@ -715,7 +715,7 @@ public class Calculadora extends AppCompatActivity implements View.OnClickListen
                     else if (Double.isNaN(result)) {
                         error = "El resultado produce overflow aritmetico";
                         cdb = new CustomDB(getApplicationContext());
-                        cdb.setNotificacion(user, "Porfavor escoge un operador!");
+                        cdb.setNotificacion(user, error);
                         cdb.close();
                         if (toast_estado)
                             Toast.makeText(Calculadora.this, error, Toast.LENGTH_SHORT).show();
