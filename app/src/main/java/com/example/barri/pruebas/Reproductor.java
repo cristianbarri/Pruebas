@@ -101,6 +101,8 @@ public class Reproductor extends AppCompatActivity implements MediaPlayer.OnPrep
                         Intent i2 = new Intent(getApplicationContext(), MemorySwipe.class);
                         i2.putExtra("user", user);
                         startActivity(i2);
+                        mp.stop();
+                        mp.release();
                         finish();
                         break;
 
@@ -108,6 +110,8 @@ public class Reproductor extends AppCompatActivity implements MediaPlayer.OnPrep
                         Intent i3 = new Intent(getApplicationContext(), MemorySwipe.class);
                         i3.putExtra("user", user);
                         startActivity(i3);
+                        mp.stop();
+                        mp.release();
                         finish();
                         break;
 
@@ -122,6 +126,8 @@ public class Reproductor extends AppCompatActivity implements MediaPlayer.OnPrep
                         Intent i = new Intent(getApplicationContext(), Perfil.class);
                         i.putExtra("user", user);
                         startActivity(i);
+                        mp.stop();
+                        mp.release();
                         finish();
                         break;
 
@@ -129,6 +135,8 @@ public class Reproductor extends AppCompatActivity implements MediaPlayer.OnPrep
                         Intent i1 = new Intent(getApplicationContext(), Calculadora.class);
                         i1.putExtra("user", user);
                         startActivity(i1);
+                        mp.stop();
+                        mp.release();
                         finish();
                         break;
 
