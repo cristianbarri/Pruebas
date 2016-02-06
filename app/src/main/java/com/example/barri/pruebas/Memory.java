@@ -95,8 +95,7 @@ public class Memory extends Fragment{
 
         Bundle bundle = this.getArguments();
         if (bundle != null) user = bundle.getString("user");
-
-
+        
         tv_puntuacion = (TextView) view.findViewById(R.id.tv_puntuacion);
         carta1 = (Button) view.findViewById(R.id.carta1);
         carta2 = (Button) view.findViewById(R.id.carta2);
