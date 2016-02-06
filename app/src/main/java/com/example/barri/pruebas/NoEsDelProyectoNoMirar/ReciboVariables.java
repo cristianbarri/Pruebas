@@ -1,8 +1,10 @@
-package com.example.barri.pruebas;
+package com.example.barri.pruebas.NoEsDelProyectoNoMirar;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.barri.pruebas.R;
 
 public class ReciboVariables extends AppCompatActivity {
 

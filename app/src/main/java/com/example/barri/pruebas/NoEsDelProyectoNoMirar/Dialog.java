@@ -1,4 +1,4 @@
-package com.example.barri.pruebas;
+package com.example.barri.pruebas.NoEsDelProyectoNoMirar;
 
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.barri.pruebas.R;
 
 public class Dialog extends AppCompatActivity {
 
