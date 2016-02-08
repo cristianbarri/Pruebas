@@ -78,6 +78,7 @@ public class MemorySwipe extends FragmentActivity {
                         cdb = new CustomDB(getApplicationContext());
                         cdb.setNotificacion(user, "Ya estas en memory o ranking");
                         cdb.close();
+
                         Toast.makeText(MemorySwipe.this, "Ya estas en memory o ranking", Toast.LENGTH_SHORT).show();
                         break;
 

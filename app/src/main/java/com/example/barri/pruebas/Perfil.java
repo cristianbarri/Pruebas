@@ -4,6 +4,8 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -39,6 +41,7 @@ public class Perfil extends AppCompatActivity {
     private DrawerLayout drawerLayout_perfil;
     private Toolbar toolbar;
     private ImageView iv;
+    private Uri selectedImage = Uri.parse("a");
 
     private TextView tv_nombre, tv_notificacion, tv_puntuacion, tv_ubicacion;
 
@@ -76,6 +79,9 @@ public class Perfil extends AppCompatActivity {
 
 
         iv = (ImageView) findViewById(R.id.imageView);
+
+        if (selectedImage == Uri.parse("a")) iv.setBackgroundResource(R.drawable.ic_launcher);
+        //else iv.setImageBitmap(); CAMBIAR IMAGEN CON LA URI
 
         iv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -240,7 +246,7 @@ public class Perfil extends AppCompatActivity {
         if(resultCode == RESULT_OK){
             if(requestCode == 1){
                 data.getData();
-                Uri selectedImage = data.getData();
+                selectedImage = data.getData();
                 try {
                     iv.setImageBitmap(MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage));
                 } catch (IOException e) {
