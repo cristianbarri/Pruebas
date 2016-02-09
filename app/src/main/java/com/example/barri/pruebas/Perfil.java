@@ -119,6 +119,7 @@ public class Perfil extends AppCompatActivity {
                     case R.id.memory:
                         Intent i2 = new Intent(getApplicationContext(), MemorySwipe.class);
                         i2.putExtra("user", user);
+                        i2.putExtra("fragment", 0);
                         startActivity(i2);
                         finish();
                         break;
@@ -126,6 +127,7 @@ public class Perfil extends AppCompatActivity {
                     case R.id.ranking:
                         Intent i3 = new Intent(getApplicationContext(), MemorySwipe.class);
                         i3.putExtra("user", user);
+                        i3.putExtra("fragment", 1);
                         startActivity(i3);
                         finish();
                         break;

@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/et_password"
-        android:digits="0123456789qwertzuiopasdfghjklyxcvbnm"
+        android:digits="0123456789qwertzuiopasdfghjklyxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
         android:hint="Solo letras y/o numeros"
         android:layout_below="@+id/tv_password"
         android:layout_alignParentLeft="true"

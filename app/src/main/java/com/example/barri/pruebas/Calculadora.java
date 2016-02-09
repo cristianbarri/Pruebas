@@ -123,6 +123,7 @@ public class Calculadora extends AppCompatActivity implements View.OnClickListen
                     case R.id.memory:
                         Intent i2 = new Intent(getApplicationContext(), MemorySwipe.class);
                         i2.putExtra("user", user);
+                        i2.putExtra("fragment", 0);
                         startActivity(i2);
                         finish();
                         break;
@@ -130,6 +131,7 @@ public class Calculadora extends AppCompatActivity implements View.OnClickListen
                     case R.id.ranking:
                         Intent i3 = new Intent(getApplicationContext(), MemorySwipe.class);
                         i3.putExtra("user", user);
+                        i3.putExtra("fragment", 1);
                         startActivity(i3);
                         finish();
                         break;
@@ -832,6 +834,9 @@ public class Calculadora extends AppCompatActivity implements View.OnClickListen
 
             case R.id.toast:
                 toast_estado = true;
+                cdb = new CustomDB(getApplicationContext());
+                cdb.setNotificacion(user, "I'm a toast!");
+                cdb.close();
                 Toast.makeText(getApplicationContext(), "I'm a toast!", Toast.LENGTH_SHORT).show();
                 return true;
 

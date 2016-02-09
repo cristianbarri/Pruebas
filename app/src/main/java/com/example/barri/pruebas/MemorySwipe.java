@@ -25,6 +25,7 @@ public class MemorySwipe extends FragmentActivity {
     ViewPager pager;
 
     private String user;
+    private int fragment;
 
     private CustomDB cdb;
 
@@ -43,9 +44,11 @@ public class MemorySwipe extends FragmentActivity {
         //setSupportActionBar(toolbar);
 
         user = getIntent().getStringExtra("user");
+        fragment = getIntent().getIntExtra("fragment", 0);
 
         pager = (ViewPager) findViewById(R.id.pagerMemorySwipe);
-        pager.setAdapter(new TabsPagerAdapter(getSupportFragmentManager(), user));
+        pager.setAdapter(new TabsPagerAdapter(getSupportFragmentManager(), user, fragment));
+        pager.setCurrentItem(fragment);
 
         mTabLayout = (TabLayout) findViewById(R.id.tabsMemorySwipe);
         mTabLayout.setupWithViewPager(pager);
