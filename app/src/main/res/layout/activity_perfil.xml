@@ -51,34 +51,30 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
             android:text="Ultima notificación: "
-            android:layout_marginLeft="20dp"
             android:id="@+id/textView16"
             android:layout_below="@+id/textView15"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignLeft="@+id/textView15"
+            android:layout_alignStart="@+id/textView15" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
-            android:layout_marginLeft="20dp"
             android:text="Mejor puntuación:"
             android:id="@+id/textView17"
             android:layout_below="@+id/textView16"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignLeft="@+id/textView16"
+            android:layout_alignStart="@+id/textView16"
+            android:layout_marginTop="41dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ubicación actual:"
-            android:layout_marginLeft="20dp"
             android:id="@+id/textView14"
-            android:layout_below="@+id/textView17"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignTop="@+id/tv_ubicacion"
+            android:layout_alignLeft="@+id/textView17"
+            android:layout_alignStart="@+id/textView17" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -92,6 +88,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:text="New Text"
             android:id="@+id/tv_puntuacion"
             android:layout_alignBottom="@+id/textView17"
@@ -105,7 +102,8 @@
             android:id="@+id/tv_ubicacion"
             android:layout_below="@+id/textView17"
             android:layout_alignLeft="@+id/tv_puntuacion"
-            android:layout_alignStart="@+id/tv_puntuacion" />
+            android:layout_alignStart="@+id/tv_puntuacion"
+            android:layout_marginTop="34dp" />
 
         <TextView
             android:layout_width="wrap_content"

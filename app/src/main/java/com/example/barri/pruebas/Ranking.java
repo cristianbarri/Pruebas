@@ -107,9 +107,9 @@ public class Ranking extends Fragment {
             public void onClick(View v) {
                 cdb = new CustomDB(v.getContext());
                 cdb.resetPuntuacion();
-                cdb.setNotificacion(user, "Para ver los cambios ves a otra activity y vuelve al Ranking");
+                cdb.setNotificacion(user, "Para refrescar ves a otra activity O:)");
                 cdb.close();
-                Toast.makeText(getContext(), "Para ver los cambios ves a otra activity y vuelve al Ranking", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Para refrescar ves a otra activity O:)", Toast.LENGTH_LONG).show();
             }
         });
 

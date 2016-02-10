@@ -334,11 +334,6 @@ public class Memory extends Fragment{
                                         carta15.setEnabled(false);
                                         carta16.setEnabled(false);
 
-
-                                        cdb = new CustomDB(getContext());
-                                        cdb.setNotificacion(user, "Para reiniciar el juego selecciona la opcion en el menu");
-                                        cdb.close();
-                                        Toast.makeText(getContext(), "Para reiniciar el juego selecciona la opcion en el menu", Toast.LENGTH_SHORT).show();
                                     }
                                 });
 
