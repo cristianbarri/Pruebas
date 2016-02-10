@@ -158,7 +158,7 @@ public class Calculadora extends AppCompatActivity implements View.OnClickListen
                         break;
 
                     case R.id.log_out:
-                        Toast.makeText(Calculadora.this, "Log Out Selected", Toast.LENGTH_SHORT).show();
+                        finish();
                         break;
                 }
                 return true;

@@ -39,7 +39,7 @@ public class Memory extends Fragment{
 
     private OnFragmentInteractionListener mListener;
 
-    private Button carta1, carta2, carta3, carta4, carta5, carta6, carta7, carta8, carta9, carta10, carta11, carta12, carta13, carta14, carta15, carta16;
+    private Button carta1, carta2, carta3, carta4, carta5, carta6, carta7, carta8, carta9, carta10, carta11, carta12, carta13, carta14, carta15, carta16, b_reiniciar;
     private TextView tv_puntuacion;
     private int ids[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
     private boolean primera = true;
@@ -113,8 +113,60 @@ public class Memory extends Fragment{
         carta14 = (Button) view.findViewById(R.id.carta14);
         carta15 = (Button) view.findViewById(R.id.carta15);
         carta16 = (Button) view.findViewById(R.id.carta16);
+        b_reiniciar = (Button) view.findViewById(R.id.b_reiniciar);
 
         shuffleArray(ids);
+
+        b_reiniciar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                primera_carta = 0;
+                segunda_carta = 0;
+                primera_carta_handler = 0;
+                segunda_carta_handler = 0;
+                background = 0;
+                background_primera = 0;
+                aciertos = 0;
+                puntuacion = 0;
+                primera = true;
+                tv_puntuacion.setText(String.valueOf(puntuacion));
+                shuffleArray(ids);
+
+                carta1.setEnabled(true);
+                carta2.setEnabled(true);
+                carta3.setEnabled(true);
+                carta4.setEnabled(true);
+                carta5.setEnabled(true);
+                carta6.setEnabled(true);
+                carta7.setEnabled(true);
+                carta8.setEnabled(true);
+                carta9.setEnabled(true);
+                carta10.setEnabled(true);
+                carta11.setEnabled(true);
+                carta12.setEnabled(true);
+                carta13.setEnabled(true);
+                carta14.setEnabled(true);
+                carta15.setEnabled(true);
+                carta16.setEnabled(true);
+
+                carta1.setBackgroundResource(R.drawable.magic_the_gathering);
+                carta2.setBackgroundResource(R.drawable.magic_the_gathering);
+                carta3.setBackgroundResource(R.drawable.magic_the_gathering);
+                carta4.setBackgroundResource(R.drawable.magic_the_gathering);
+                carta5.setBackgroundResource(R.drawable.magic_the_gathering);
+                carta6.setBackgroundResource(R.drawable.magic_the_gathering);
+                carta7.setBackgroundResource(R.drawable.magic_the_gathering);
+                carta8.setBackgroundResource(R.drawable.magic_the_gathering);
+                carta9.setBackgroundResource(R.drawable.magic_the_gathering);
+                carta10.setBackgroundResource(R.drawable.magic_the_gathering);
+                carta11.setBackgroundResource(R.drawable.magic_the_gathering);
+                carta12.setBackgroundResource(R.drawable.magic_the_gathering);
+                carta13.setBackgroundResource(R.drawable.magic_the_gathering);
+                carta14.setBackgroundResource(R.drawable.magic_the_gathering);
+                carta15.setBackgroundResource(R.drawable.magic_the_gathering);
+                carta16.setBackgroundResource(R.drawable.magic_the_gathering);
+            }
+        });
 
         carta1.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -143,7 +143,7 @@ public class Reproductor extends AppCompatActivity implements MediaPlayer.OnPrep
                         break;
 
                     case R.id.log_out:
-                        Toast.makeText(Reproductor.this, "Log Out Selected", Toast.LENGTH_SHORT).show();
+                        finish();
                         break;
                 }
                 return true;

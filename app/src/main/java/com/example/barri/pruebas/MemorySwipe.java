@@ -47,7 +47,7 @@ public class MemorySwipe extends FragmentActivity {
         fragment = getIntent().getIntExtra("fragment", 0);
 
         pager = (ViewPager) findViewById(R.id.pagerMemorySwipe);
-        pager.setAdapter(new TabsPagerAdapter(getSupportFragmentManager(), user, fragment));
+        pager.setAdapter(new TabsPagerAdapter(getSupportFragmentManager(), user));
         pager.setCurrentItem(fragment);
 
         mTabLayout = (TabLayout) findViewById(R.id.tabsMemorySwipe);
@@ -114,7 +114,7 @@ public class MemorySwipe extends FragmentActivity {
                         break;
 
                     case R.id.log_out:
-                        Toast.makeText(MemorySwipe.this, "Log Out Selected", Toast.LENGTH_SHORT).show();
+                        finish();
                         break;
                 }
                 return true;
@@ -145,4 +145,5 @@ public class MemorySwipe extends FragmentActivity {
 
 
     }
+
 }

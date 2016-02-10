@@ -8,7 +8,8 @@
         android:scrollbars="vertical"
         android:background="#ffffff"
         android:id="@+id/mRecyclerView"
-        android:layout_below="@+id/linearLayoutRank" />
+        android:layout_below="@+id/linearLayoutRank"
+        android:layout_above="@+id/b_reiniciar1" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -43,5 +44,14 @@
             android:textSize="20dp"
             android:textStyle="bold" />
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reiniciar"
+        android:id="@+id/b_reiniciar1"
+        android:layout_marginBottom="62dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

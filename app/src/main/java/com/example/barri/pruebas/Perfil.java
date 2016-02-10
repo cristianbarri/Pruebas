@@ -155,7 +155,7 @@ public class Perfil extends AppCompatActivity {
                         break;
 
                     case R.id.log_out:
-                        Toast.makeText(Perfil.this, "Log Out Selected", Toast.LENGTH_SHORT).show();
+                        finish();
                         break;
                 }
                 return true;

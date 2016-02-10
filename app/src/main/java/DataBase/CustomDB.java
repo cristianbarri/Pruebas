@@ -158,12 +158,11 @@ public class CustomDB extends SQLiteOpenHelper {
         return punt;
     }
 
-    public boolean setPuntuacion(String user, String puntuacion) {
+    public boolean resetPuntuacion() {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put("puntuacion", puntuacion);
-        String[] where = {user};
-        return db.update(TABLE_NAME, cv, "user=?", where) > 0;
+        cv.put("puntuacion", 999);
+        return db.update(TABLE_NAME, cv, null, null) > 0;
     }
 
     @Override

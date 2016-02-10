@@ -34,7 +34,11 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
                 f.setArguments(bundle);
                 return f;
             case 1:
-                return new Ranking();
+                Fragment f1 = new Ranking();
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("user", user);
+                f1.setArguments(bundle1);
+                return f1;
         }
         return null;
     }

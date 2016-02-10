@@ -1,5 +1,6 @@
 package com.example.barri.pruebas;
 
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
@@ -7,9 +8,12 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -31,6 +35,8 @@ public class Ranking extends Fragment {
     private CustomDB cdb;
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLinearLayout;
+    private Button b_reiniciar1;
+    private String user;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -80,6 +86,11 @@ public class Ranking extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_ranking, container, false);
 
+        b_reiniciar1 = (Button) view.findViewById(R.id.b_reiniciar1);
+
+        Bundle bundle = this.getArguments();
+        if (bundle != null) user = bundle.getString("user");
+
         //findViewById del layout activity_main
         mRecyclerView = (RecyclerView) view.findViewById(R.id.mRecyclerView);
 
@@ -90,6 +101,17 @@ public class Ranking extends Fragment {
 
         //Asignamos el LinearLayoutManager al recycler:
         mRecyclerView.setLayoutManager(mLinearLayout);
+
+        b_reiniciar1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cdb = new CustomDB(v.getContext());
+                cdb.resetPuntuacion();
+                cdb.setNotificacion(user, "Para ver los cambios ves a otra activity y vuelve al Ranking");
+                cdb.close();
+                Toast.makeText(getContext(), "Para ver los cambios ves a otra activity y vuelve al Ranking", Toast.LENGTH_LONG).show();
+            }
+        });
 
         cdb = new CustomDB(view.getContext());
         ArrayList<Usuario> usuarios = new ArrayList<>();
