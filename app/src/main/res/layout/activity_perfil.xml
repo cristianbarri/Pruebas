@@ -112,6 +112,7 @@
             android:id="@+id/tv_nombre"
             android:layout_alignTop="@+id/textView15"
             android:layout_centerHorizontal="true" />
+
     </RelativeLayout>
 
     <!-- Layout del menú lateral (Navigation View) -->

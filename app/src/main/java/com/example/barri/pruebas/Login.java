@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,11 +13,18 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 import DataBase.CustomDB;
+import InternetConexion.ImageLoadTask;
 
 public class Login extends AppCompatActivity {
 
@@ -25,10 +34,17 @@ public class Login extends AppCompatActivity {
     private boolean login = true;
     private CustomDB cdb;
 
+    private ImageView iv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        iv = (ImageView) findViewById(R.id.imageView3);
+
+        String url = "https://pbs.twimg.com/profile_images/3086835833/892110c8209229ef9bfa107da9af03d9_400x400.png";
+        new ImageLoadTask(url, iv).execute();
 
         tv_user = (TextView) findViewById(R.id.tv_user);
         tv_password = (TextView) findViewById(R.id.tv_password);
@@ -108,6 +124,7 @@ public class Login extends AppCompatActivity {
                             cv.put("password", et_password.getText().toString());
                             cv.put("puntuacion", 999);
                             cv.put("notificacion", "Usuario creado correctamente");
+                            cv.put("uri_string", "a");
 
                             cdb.createUser("Usuarios", cv);
                             cdb.close();
@@ -152,4 +169,5 @@ public class Login extends AppCompatActivity {
         InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+
 }

@@ -31,6 +31,9 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 
 import DataBase.CustomDB;
@@ -41,7 +44,7 @@ public class Perfil extends AppCompatActivity {
     private DrawerLayout drawerLayout_perfil;
     private Toolbar toolbar;
     private ImageView iv;
-    private Uri selectedImage = Uri.parse("a");
+    private String uri_string = "a";
 
     private TextView tv_nombre, tv_notificacion, tv_puntuacion, tv_ubicacion;
 
@@ -77,12 +80,22 @@ public class Perfil extends AppCompatActivity {
         tv_ubicacion = (TextView) findViewById(R.id.tv_ubicacion);
         tv_ubicacion.setText("Buscando ubicacion...");
 
-
         iv = (ImageView) findViewById(R.id.imageView);
 
-        if (selectedImage == Uri.parse("a")) iv.setBackgroundResource(R.drawable.ic_launcher);
-        //else iv.setImageBitmap(); CAMBIAR IMAGEN CON LA URI
+        cdb = new CustomDB(getApplicationContext());
+        uri_string = cdb.getStringUri(user);
+        cdb.close();
+        Toast.makeText(Perfil.this, uri_string, Toast.LENGTH_SHORT).show();
 
+        if (uri_string == "a") iv.setBackgroundResource(R.drawable.ic_launcher);
+        else {
+            try {
+                iv.setImageBitmap(MediaStore.Images.Media.getBitmap(this.getContentResolver(), Uri.parse(uri_string)));
+            } catch (IOException e) {
+                iv.setBackgroundResource(R.drawable.ic_launcher);
+                e.printStackTrace();
+            }
+        }
         iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -247,10 +260,12 @@ public class Perfil extends AppCompatActivity {
         //Comprobamos los request code. Hay que tener total control de lo que hace nuestra app.
         if(resultCode == RESULT_OK){
             if(requestCode == 1){
-                data.getData();
-                selectedImage = data.getData();
+                uri_string = data.getData().toString();
+                cdb = new CustomDB(getApplicationContext());
+                cdb.setStringUri(user, uri_string);
+                cdb.close();
                 try {
-                    iv.setImageBitmap(MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage));
+                    iv.setImageBitmap(MediaStore.Images.Media.getBitmap(this.getContentResolver(), Uri.parse(uri_string)));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -263,4 +278,19 @@ public class Perfil extends AppCompatActivity {
             Toast.makeText(Perfil.this, "Problemas con el 'Request Code'", Toast.LENGTH_SHORT).show();
         }
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("uri_string", uri_string);
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        uri_string = savedInstanceState.getString("uri_string");
+    }
+
+
 }

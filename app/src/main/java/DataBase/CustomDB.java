@@ -23,7 +23,7 @@ public class CustomDB extends SQLiteOpenHelper {
     public static final String TABLE_NAME ="Usuarios";
 
     //Sentencia global de creacion de la base de datos
-    public static final String USERS_TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (id INTEGER PRIMARY KEY AUTOINCREMENT, user TEXT, password TEXT, puntuacion INTEGER, notificacion TEXT);";
+    public static final String USERS_TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (id INTEGER PRIMARY KEY AUTOINCREMENT, user TEXT, password TEXT, puntuacion INTEGER, notificacion TEXT, uri_string TEXT);";
 
 
 
@@ -139,7 +139,7 @@ public class CustomDB extends SQLiteOpenHelper {
     }
 
     public int getPuntuacion(String user) {
-        int punt = 935742100;
+        int punt = 999;
         SQLiteDatabase db = this.getReadableDatabase();
         String[] columns = {"user", "puntuacion"};
         String[] where = {user};
@@ -163,6 +163,34 @@ public class CustomDB extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
         cv.put("puntuacion", 999);
         return db.update(TABLE_NAME, cv, null, null) > 0;
+    }
+
+    public String getStringUri(String user) {
+        String uri_string = "a";
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {"user", "uri_string"};
+        String[] where = {user};
+        Cursor c = db.query(
+                TABLE_NAME,  // The table to query
+                columns,                                // The columns to return
+                "user=?",                                   // The columns for the WHERE clause
+                where,                                   // The values for the WHERE clause
+                null,                                   // don't group the rows
+                null,                                   // don't filter by row groups
+                null                                    // The sort order
+        );
+        if (c.moveToFirst()) {
+            uri_string = c.getString(c.getColumnIndex("uri_string"));
+        }
+        return uri_string;
+    }
+
+    public boolean setStringUri(String user, String uri_string) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("uri_string", uri_string);
+        String[] where = {user};
+        return db.update(TABLE_NAME, cv, "user=?", where) > 0;
     }
 
     @Override

@@ -102,4 +102,12 @@
         android:layout_toEndOf="@+id/b_login"
         android:layout_marginLeft="45dp"
         android:layout_marginStart="45dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/b_signup"
+        android:layout_toEndOf="@+id/b_signup" />
 </RelativeLayout>
